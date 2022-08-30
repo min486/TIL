@@ -1,0 +1,38 @@
+/* 아래에 CSS를 작성해주세요. */
+
+.card {
+  width: 300px;
+  text-align: center;
+}
+
+.card-image {
+  width: 95%;
+  border-radius: 1rem;
+}
+
+.left {
+  margin-top: 10px;
+  margin-left: 20px;
+}
+
+.grey {
+  color: darkgrey;
+}
+
+.line2 {
+  letter-spacing: -3px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.line4 {
+  margin-top: 5px;
+}
+
+.size {
+  font-size: 25px;
+}
+
+.num1 {
+  color: aqua;
+}
