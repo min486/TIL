@@ -1,0 +1,66 @@
+/* 아래에 CSS를 작성해주세요. */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  height: 1000px;
+}
+
+.center {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.title {
+  display: block;
+  text-align: center;
+  font-size: 12px;
+}
+
+.flex-container {
+  display: flex;
+  flex-direction: row;
+  width: 900px;
+}
+
+.flex-item {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.card {
+  width: 300px;
+  margin-left: 2rem;
+}
+
+.card-image {
+  width: 100%;
+  border-radius: 1rem;
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 7rem;
+  margin-top: 1rem;
+  margin-left: 3rem;
+}
+
+.line1 {
+  font-size: 12px;
+}
+
+.line2 {
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.line3 {
+  font-size: 10px;
+}
