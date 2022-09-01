@@ -1,0 +1,166 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Noto Sans KR', sans-serif;
+  min-width: 1280px;
+  color: #333333;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  position: sticky;
+  top: 0px;
+}
+
+.nav-text {
+  margin: 1rem;
+}
+
+.nav-ul {
+  display: flex;
+}
+
+.nav-link {
+  text-decoration: none;
+}
+
+.nav-link:hover {
+  background-color: lightpink;
+}
+
+.nav-link:visited {
+  color: black;
+}
+
+.banner {
+  height: 700px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-image: url(../assets/apparel.jpeg);
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.art {
+  display: flex;
+}
+
+.art-image {
+  width: 500px;
+  margin: 3rem 1rem;
+}
+
+.art-img {
+  width: 100%;
+}
+
+.art-text {
+  margin: 3rem 1rem;
+  line-height: 2;
+}
+
+.art-title {
+  text-align: center;
+  font-size: 2rem;
+}
+
+.art-p {
+  width: 30rem;
+  font-size: .8rem;
+}
+
+.art2 {
+  display: flex;
+  flex-direction: column;
+}
+
+.more {
+  text-align: center;
+  font-size: 2rem;
+}
+
+.art2-ul {
+  display: flex;
+}
+
+.icon {
+  width: 64px;
+  height: 64px;  
+}
+
+.icon-li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 2rem 3rem;
+}
+
+.icon-li div {
+  margin: 0.5rem;
+}
+
+.fix-button {
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  width: 2rem;
+  height: 2rem;
+}
+
+.fix-button img {
+  width: 100%;
+  height: 100%;
+}
+
+.pro-ul {
+  display: flex;
+  justify-content: center;
+  margin-top: 3rem;
+}
+
+.pro-li {
+  display: flex;
+  flex-direction: column;
+}
+
+.pro-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: solid black;
+  width: 18rem;
+  margin: 0.5rem;
+}
+
+.pro-image {
+  width: 16rem;
+  margin-top: 1rem;
+}
+
+.pro-img {
+  width: 100%;
+}
+
+.pro-title {
+  font-weight: bold;
+  font-size: 1.5rem;
+  margin: .5rem;
+}
+
+.pro-p {
+  margin: 0.5rem
+}
