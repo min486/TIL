@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Candal&display=swap');
+
+.bomb-text {
+  font-family: 'Black Han Sans', sans-serif;
+  font-size: 9rem;
+  background-image: url(https://bestanimations.com/media/fireworks/671801409ba-awesome-coloful-fireworks-animated-gif-image-3.gif);
+  background-size: 100%;
+  background-position: center;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  margin: 0 1rem;
+}
+
+.fire {
+  text-align: center;
+}
+
+.btn {
+  text-align: center;
+}
+
+#lotto-btn {
+  font-family: 'Candal', sans-serif;
+  color: yellow;
+  font-size: 3rem;
+  background-color: #F44336;
+  width: 28rem;
+  height: 10rem;
+}
+
+#result {
+  text-align: center;
+}

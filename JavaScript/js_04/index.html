@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>프로젝트</title>
+  <link rel="stylesheet" href="./lotto.css">
+  <style>
+    .ball {
+      width: 10rem;
+      height: 10rem;
+      margin: .5rem;
+      background-color: yellowgreen;
+      border-radius: 50%;
+      /* 컨텐츠 중앙, 수직 정렬 */
+      text-align: center;
+      line-height: 10rem;
+      /* 폰트 정리 */
+      font-size: xx-large;
+      font-weight: bold;
+    }
+    .ball-container {
+      display: flex;
+      justify-content: center;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="fire">
+    <span class="bomb-text">인생은</span>
+    <span class="bomb-text">한방 !!</span>
+  </div>
+  <div class="btn">
+    <button id="lotto-btn">Click to Lotto</button>
+  </div>
+  <div id="result"></div>
+  <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
+  <script>
+    const button = document.querySelector('#lotto-btn')
+    button.addEventListener('click', function() {
+      if(button.innerText === 'Click to Lotto') {
+        button.innerText = 'Good Luck!'
+        setTimeout(() => button.innerText = 'Click to Lotto', 1000)
+      }
+
+      // 컨테이너 만들고
+      const ballContainer = document.createElement('div')
+      ballContainer.classList.add('ball-container')
+
+      // 숫자 6개 랜덤으로 뽑아서
+      const numbers = _.sampleSize(_.range(1, 46), 6)
+      console.log(numbers)
+      
+      // 공을 6개 만든다
+      for(let text = 0; text < numbers.length; text++) {
+        const ball = document.createElement('div')
+        ball.classList.add('ball')
+        ball.innerText = numbers[text]
+        
+        // 컨테이너에 붙이기
+        ballContainer.appendChild(ball)
+
+        // 컨테이너를 결과 영역에 붙이기
+        const result = document.querySelector('#result')
+        result.appendChild(ballContainer)
+
+        // 번호별로 색깔 지정
+        if(numbers[text] < 11) {
+          ball.style.backgroundColor = '#fef77b'
+        } 
+        else if(numbers[text] < 21) {
+          ball.style.backgroundColor = '#a8daf9'
+        }
+        else if(numbers[text] < 31) {
+          ball.style.backgroundColor = '#ff91af'
+        }
+        else if(numbers[text] < 41) {
+          ball.style.backgroundColor = '#9e9fae'
+        }
+        else {
+          ball.style.backgroundColor = '#aceeca'
+        }
+      }
+    })
+  </script>
+</body>
+</html>
