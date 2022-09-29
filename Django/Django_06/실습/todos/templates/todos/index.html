@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+  <h1>Todo - 할 일 관리</h1>
+  
+  <form action="{% url 'todos:create' %}">
+    <div class="input-group flex-nowrap my-3">
+      <span class="input-group-text">할 일</span>
+      <input type="text" class="form-control" name="input_todo" maxlength="80" placeholder="What are you going to do?">
+    </div>
+    
+    <div class="input-group flex-nowrap my-3">
+      <span class="input-group-text">우선 순위</span>
+      <select class="form-select" name="input_rank">
+        <option selected>1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+      </select>
+    </div>
+  
+    <div class="input-group flex-nowrap my-3">
+      <span class="input-group-text">마감 기한</span>
+      <input type="date" name="input_deadline" class="form-control" min="2022-01-01" max="2023-12-31">
+    </div>
+    
+    <div class="my-3">
+      <button type="submit" class="btn btn-outline-info w-100">할 일 추가</button>
+    </div>
+  </form>
+
+  <table class="table my-5">
+    <thead>
+      <tr>
+        <th scope="col">우선 순위</th>
+        <th scope="col">할 일</th>
+        <th scope="col">생성 날짜</th>
+        <th scope="col">마감 기한</th>
+        <th scope="col">진행 상태</th>
+        <th scope="col">상태 변경</th>
+        <th scope="col">삭제</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for todo in todos %}
+      <!-- status 참이면 취소선 긋기 -->
+      {% if todo.status %}
+      <tr>
+        <th scope="row" style="text-decoration:line-through lime">{{ todo.rank }}</th>
+        <td style="text-decoration:line-through lime">{{ todo.todo }}</td>
+        <td style="text-decoration:line-through lime">{{ todo.date }}</td>
+        <td style="text-decoration:line-through lime">{{ todo.deadline }}</td>
+        <td style="text-decoration:line-through lime">{{ todo.status }}</td>
+        <td>
+          <form action="{% url 'todos:change' todo.pk %}">
+            <button type="submit" class="btn btn-outline-info">변경</button>
+          </form>
+        </td>
+        <td>
+          <form action="{% url 'todos:delete' todo.pk %}">
+            <button type="submit" class="btn btn-outline-info">삭제</button>
+          </form>
+        </td>
+      </tr>
+      <!-- 그밖에 else, False면 -->
+      {% else %}
+      <tr>
+        <th scope="row">{{ todo.rank }}</th>
+        <td>{{ todo.todo }}</td>
+        <td>{{ todo.date }}</td>
+        <td>{{ todo.deadline }}</td>
+        <td>{{ todo.status }}</td>
+        <td>
+          <form action="{% url 'todos:change' todo.pk %}">
+            <button type="submit" class="btn btn-outline-info">변경</button>
+          </form>
+        </td>
+        <td>
+          <form action="{% url 'todos:delete' todo.pk %}">
+            <button type="submit" class="btn btn-outline-info">삭제</button>
+          </form>
+        </td>
+      </tr>
+      {% endif %}
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock content %}

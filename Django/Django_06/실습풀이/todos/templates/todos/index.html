@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <h1>todos index.html</h1>
+  <h3>할 일 추가 form</h3>
+  <form action="{% url 'todos:create' %}">
+    <input type="text" name="content">
+    <select name="priority">
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+    </select>
+    <input type="date" name="deadline">
+    <input type="submit" value="할 일 추가">
+  </form>
+  <h3>할 일 목록 리스트</h3>
+  <ul>
+    {% for todo in todos %}
+    <li>
+      <!-- completed 참이면 -->
+      {% if todo.completed %}
+      <del>
+        {{ todo.pk }} - {{ todo.content }} - {{ todo.completed }}
+        - <a href="{% url 'todos:update' todo.pk %}">[상태 변경]</a>
+        <!-- todo.pk -> 삭제할 todo의 pk(id)를 동적인자로 전달 -->
+        - <a href="{% url 'todos:delete' todo.pk %}">[삭제]</a>
+      </del>
+      <!-- 그밖에 else, 참이 아니면 -->
+      {% else %}
+      {{ todo.pk }} - {{ todo.content }} - {{ todo.completed }}
+      - <a href="{% url 'todos:update' todo.pk %}">[상태 변경]</a>
+      <!-- todo.pk -> 삭제할 todo의 pk(id)를 동적인자로 전달 -->
+      - <a href="{% url 'todos:delete' todo.pk %}">[삭제]</a>
+      {% endif %}
+    </li>
+    {% endfor %}
+  </ul>
+</body>
+
+</html>
